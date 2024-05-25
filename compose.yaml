@@ -1,0 +1,36 @@
+---
+services:
+
+  ray_head:
+    image: rayproject/ray:latest
+    container_name: ray_head
+    shm_size: 6gb
+    volumes:
+      - ./head:/head
+    working_dir: /head
+    command: bash start_head.sh
+    ports:
+      - 6379:6379
+      - 8265:8265
+
+  ray_worker:
+    image: rayproject/ray:latest
+    container_name: ray_worker
+    shm_size: 6gb
+    volumes:
+      - ./worker:/worker
+    working_dir: /worker
+    command: bash start_worker.sh
+    depends_on:
+      - ray_head
+
+  ray_driver:
+    image: rayproject/ray:latest
+    container_name: ray_driver
+    volumes:
+      - ./driver:/driver
+    working_dir: /driver
+    command: sleep infinity
+    depends_on:
+      - ray_head
+      - ray_worker
