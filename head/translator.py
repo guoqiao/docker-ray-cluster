@@ -9,7 +9,7 @@ from ray import serve
 @serve.deployment(num_replicas=1, ray_actor_options={"num_cpus": 0.2, "num_gpus": 0})
 class Translator:
     def __init__(self):
-        # Load model
+        # Load model, fake here
         self.model = lambda text: text.upper()
 
     def translate(self, text: str) -> str:
