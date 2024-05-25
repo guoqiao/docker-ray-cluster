@@ -32,6 +32,6 @@ However, the expected url is actually different, depends on the role:
 
 - when start ray worker: use `ray start --address head-ip:6379` (no http://)
 - when submit ray job from driver: `ray job submit --address http://head-ip:8265 ... -- python script.py`
-- when serve run: `serve run --address xxx:app`
+- In python code: `ray.init(address='ray://head-ip:10001')`
 
 This is very confusing, and hard to realize!
