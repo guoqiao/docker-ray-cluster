@@ -7,5 +7,5 @@ sh-head:
 sh-worker:
 	docker exec -it ray_worker bash
 
-sh-client:
-	docker exec -it ray_client bash
+sh-driver:
+	docker exec -it ray_driver bash

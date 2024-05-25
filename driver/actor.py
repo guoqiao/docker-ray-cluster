@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import ray
-ray.init()
+# connect to existing cluster
+ray.init(address='auto')
+
 
 @ray.remote
 class Counter(object):

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import ray
-ray.init()
+# connect to existing cluster
+ray.init(address='auto')
 
 from pprint import pprint
 pprint(ray.nodes())
