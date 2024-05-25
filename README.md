@@ -23,4 +23,4 @@ Trigger from driver, with `ray job submit --address http://head-ip:8265`:
 Note: for ray worker, the `--address` option or `RAY_ADDRESS` envvar is `head-ip:6379` (no http://). Do not be confused.
 
 Run from cluster/head:
-- app: a class with @ray.deployment, use serve run xxx:app to start
+- app: a class with @ray.deployment, use `serve run xxx:app` to start
